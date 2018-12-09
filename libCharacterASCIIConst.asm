@@ -34,3 +34,6 @@ CHR_Quote                   = 34
 CHR_Equals                  = 61
 CHR_Colon                   = 58
 CHR_Comma                   = 44
+CHR_ExclamationMark         = 33
+CHR_OpenBracket             = 40
+CHR_ClosedBracket           = 41

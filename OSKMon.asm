@@ -10,6 +10,24 @@
 ;* 16th Apr 2018 : Created new project for use in the new Machine Code Monitor *
 ;*                 Video Series                                                *
 ;* 18th Apr 2018 : Added Break, Tokaniser and Register Command                 *
+;* 2nd May 2018  : Added Assembler Command                                     *
+;* 14th May 2018 : Added Dissassembler Command                                 *
+;* 18th May 2018 : Added Command Command                                       *
+;* 20th May 2018 : Added Fill Command                                          *
+;* 22nd May 2018 : Added Gosub Command                                         *
+;* 2nd June 2018 : Added Hunt Command                                          *
+;* 6th June 2018 : Added Interpret Command                                     *
+;* 21st June 2018 : Added Load Command                                         *
+;* 22nd June 2018 : Added Memory Command                                       *
+;* 22nd June 2018 : Added MemoryPut Command                                    *
+;* 23rd June 2018 : Added Output Command                                       *
+;* 24th June 2018 : Added Save Command                                         *
+;* 24th June 2018 : Added Transfer Command                                     *
+;* 24th June 2018 : Added Exit Command                                         *
+;* 26th June 2018 : Added Decimal Command                                      *
+;* 26th June 2018 : Added Hexadecimal Command                                  *
+;* 26th June 2018 : Added Binary Command                                       *
+;* 26th June 2018 : Added Octal Command                                        *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -37,6 +55,7 @@ incasm "libROMRoutines.asm"
 ;* Variables                                                                   *
 ;*******************************************************************************
 
+ADDVEC  = 247
 CINV    = $0314
 CBINV   = $0316
 NMINV   = $0318
@@ -124,18 +143,32 @@ endif
 ;* Storage Locations                                                           *
 ;*******************************************************************************
 
-YREG    = $02A7
-XREG    = $02A8
-ACCREG  = $02A9
-STREG   = $02AA
-PCLOREG = $02AB
-PCHIREG = $02AC
-STPTREG = $02AD
-IRQINT  = $02AE
-NMIINT  = $02B0
-TEMP    = $0282
+YREG            = $02A7
+XREG            = YREG + 1
+ACCREG          = XREG + 1
+STREG           = ACCREG + 1
+PCLOREG         = STREG + 1
+PCHIREG         = PCLOREG + 1
+STPTREG         = PCHIREG + 1
+IRQINT          = STPTREG + 1
+NMIINT          = IRQINT + 2
+TEMP            = NMIINT + 2
 
-STREGISTER = $0283
+STREGISTER      = TEMP + 1
+
+COM_P           = STREGISTER + 1
+COM_NB          = COM_P + 1
+COM_MODE        = COM_NB + 1
+COM_CODE        = COM_MODE + 1
+COM_L           = COM_CODE + 1
+COM_TEXT        = COM_L + 1
+
+DIS_END         = COM_TEXT + 26
+NEXT            = DIS_END + 2
+LOCATION        = NEXT + 2
+MODE_JUMP_VEC   = LOCATION + 2
 
 incasm "libOSKRoutines.asm"
 incasm "libRegisterCommand.asm"
+incasm "libAssembleCommand.asm"
+incasm "libDissassembleCommand.asm"

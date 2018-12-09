@@ -1,3 +1,32 @@
+; Mode Key
+;    'a' = implied
+;    'b' = absolute
+;    'c' = absolute,x
+;    'd' = absolute,y
+;    'e' = #immediate
+;    'f' = (indirect)
+;    'g' = (indirect,x)
+;    'h' = (indirect),y
+;    'i' = zeropage
+;    'j' = zeropage,x
+;    'k' = zeropage,y
+;    'l' = relative
+;    'm' = error mode
+
+MODE_IMPLIED    = $41
+MODE_ABSOLUTE   = $42
+MODE_ABSOLUTE_X = $43
+MODE_ABSOLUTE_Y = $44
+MODE_IMMEDIATE  = $45
+MODE_INDIRECT   = $46
+MODE_INDIRECT_X = $47
+MODE_INDIRECT_Y = $48
+MODE_ZEROPAGE   = $49
+MODE_ZEROPAGE_X = $4A
+MODE_ZEROPAGE_Y = $4B
+MODE_RELATIVE   = $4C
+MODE_ERROR      = $4D
+
 OPCodes
     TEXT "adcb"
     BYTE 109
