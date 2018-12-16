@@ -15,19 +15,6 @@
 ;* 18th May 2018 : Added Command Command                                       *
 ;* 20th May 2018 : Added Fill Command                                          *
 ;* 22nd May 2018 : Added Gosub Command                                         *
-;* 2nd June 2018 : Added Hunt Command                                          *
-;* 6th June 2018 : Added Interpret Command                                     *
-;* 21st June 2018 : Added Load Command                                         *
-;* 22nd June 2018 : Added Memory Command                                       *
-;* 22nd June 2018 : Added MemoryPut Command                                    *
-;* 23rd June 2018 : Added Output Command                                       *
-;* 24th June 2018 : Added Save Command                                         *
-;* 24th June 2018 : Added Transfer Command                                     *
-;* 24th June 2018 : Added Exit Command                                         *
-;* 26th June 2018 : Added Decimal Command                                      *
-;* 26th June 2018 : Added Hexadecimal Command                                  *
-;* 26th June 2018 : Added Binary Command                                       *
-;* 26th June 2018 : Added Octal Command                                        *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -143,32 +130,35 @@ endif
 ;* Storage Locations                                                           *
 ;*******************************************************************************
 
-YREG            = $02A7
-XREG            = YREG + 1
-ACCREG          = XREG + 1
-STREG           = ACCREG + 1
-PCLOREG         = STREG + 1
-PCHIREG         = PCLOREG + 1
-STPTREG         = PCHIREG + 1
-IRQINT          = STPTREG + 1
-NMIINT          = IRQINT + 2
-TEMP            = NMIINT + 2
+YREG            = $02A7                 ; Store location for Y Register
+XREG            = YREG + 1              ; Store location for X Register
+ACCREG          = XREG + 1              ; Store location for Accumulator Register
+STREG           = ACCREG + 1            ; Store location for Status Register
+PCLOREG         = STREG + 1             ; Store location for Program Counter Lo
+PCHIREG         = PCLOREG + 1           ; Store location for Program Counter Hi
+STPTREG         = PCHIREG + 1           ; Store location for Stack Pointer Register
+IRQINT          = STPTREG + 1           ; Store location for IRQ Vector Address
+NMIINT          = IRQINT + 2            ; Store location for NMI Vector Address
+TEMP            = NMIINT + 2            ; Store location for Temp Vector Address
 
 STREGISTER      = TEMP + 1
 
 COM_P           = STREGISTER + 1
 COM_NB          = COM_P + 1
-COM_MODE        = COM_NB + 1
+COM_MODE        = COM_NB + 1            ; Store location for Mode
 COM_CODE        = COM_MODE + 1
 COM_L           = COM_CODE + 1
-COM_TEXT        = COM_L + 1
+COM_TEXT        = COM_L + 1             ; Storage Location For Command Buffer Text
 
-DIS_END         = COM_TEXT + 26
-NEXT            = DIS_END + 2
-LOCATION        = NEXT + 2
-MODE_JUMP_VEC   = LOCATION + 2
+DIS_END         = COM_TEXT + 26         ; Store location for End Vector Address
+NEXT            = DIS_END + 2           ; Store location for Next Vector Address
+LOCATION        = NEXT + 2              ; Store location for Location Vector Address
+MODE_JUMP_VEC   = LOCATION + 2          ; Store location for MODE Jump Vector Address
 
 incasm "libOSKRoutines.asm"
 incasm "libRegisterCommand.asm"
 incasm "libAssembleCommand.asm"
 incasm "libDissassembleCommand.asm"
+incasm "libCommandCommand.asm"
+incasm "libFillCommand.asm"
+incasm "libGoCommand.asm"

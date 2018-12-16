@@ -202,7 +202,7 @@ OPCodes
     BYTE 182
     TEXT "ldyb"
     BYTE 172
-    TEXT "ldyd"
+    TEXT "ldyc"
     BYTE 188
     TEXT "ldye"
     BYTE 160

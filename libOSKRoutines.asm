@@ -113,7 +113,7 @@ IBYTE
 ;******************************************************************************
 ERROR
     lda #"?"
-    jsr krljmp_CHROUT$
+    jsr krljmp_CHROUT$      ; Print Out Character
 
 ;******************************************************************************
 ;* Show Ready prompt                                                          *
@@ -126,8 +126,8 @@ READY
 
 READY1
     lda #">"
-    jsr krljmp_CHROUT$
-    jmp TOKANISER_COMMAND
+    jsr krljmp_CHROUT$      ; Print out Character
+    jmp TOKANISER_COMMAND   ; Jump back to Command Line
 
 ;******************************************************************************
 ;* Input Command from command line                                            *
@@ -140,7 +140,7 @@ INPUT_COMMAND
     cmp #CHR_Return     ; Check for 'Enter'
     beq @INPUT          ; Yes, finish input reading
     cmp #CHR_Space
-    beq INPUT_COMMAND
+    beq INPUT_COMMAND   ; Is Space, then ignore and get next character
     ;cmp #"!"            ; check for '!'
     ;bcc INPUT_COMMAND   ; go back and fetch next command
     ;cmp #"["            ; check for '['
@@ -158,12 +158,12 @@ INPUT_COMMAND
 ;*         X Reg = Lo Byte                                                    *
 ;******************************************************************************
 GET_HEX_2BYTE_VALUE
-    jsr GET_HEX_1BYTE_VALUE
-    pha 
-    iny 
-    jsr GET_HEX_1BYTE_VALUE
-    tax 
-    pla 
+    jsr GET_HEX_1BYTE_VALUE     ; Get 2 digit hex value
+    pha                         ; Store result on Stack
+    iny                         ; Increase character position value
+    jsr GET_HEX_1BYTE_VALUE     ; Get 2 digit hex value
+    tax                         ; move that to X
+    pla                         ; get back value from stact
     rts 
 
 ;******************************************************************************
@@ -175,17 +175,17 @@ GET_HEX_2BYTE_VALUE
 ;*         Acc = Byte                                                         *
 ;******************************************************************************
 GET_HEX_1BYTE_VALUE
-    lda COM_TEXT-1,y
-    jsr IBYTE
-    asl 
-    asl 
-    asl 
-    asl 
-    sta TEMP
-    iny 
-    lda COM_TEXT-1,y
-    jsr IBYTE
-    ora TEMP
+    lda COM_TEXT - 1,y      ; Get 1 digit from keyboard buffer
+    jsr IBYTE               ; Run through hex convertor
+    asl                     ; x 2
+    asl                     ; x 4
+    asl                     ; x 8
+    asl                     ; x 16
+    sta TEMP                ; Store Result away Temporarily
+    iny                     ; increase character position index
+    lda COM_TEXT - 1,y      ; get next character
+    jsr IBYTE               ; Run through hex convertor
+    ora TEMP                ; OR result with previous value
     rts 
 
 ;******************************************************************************
@@ -239,28 +239,29 @@ NOB6
 ;*         Y = Command Index                                                  *
 ;******************************************************************************
 TOKANISER_COMMAND
-    jsr INPUT_COMMAND   ; Get Command
-    cmp #CHR_Return     ; Check For 'Return'
-    beq READY           ; Goto Ready Sign
-    ldy #0              ; Reset Comamnd Counter
+    jsr INPUT_COMMAND       ; Get Command
+    cmp #CHR_Return         ; Check For 'Return'
+    beq READY               ; Goto Ready Sign
+    ldy #0                  ; Reset Comamnd Counter
 TOK1
-    cmp COMMANDS,y      ; Compare with command list
-    beq TOK2            ; identified the command
-    iny                 ; No match, so check next one
+    cmp COMMANDS,y          ; Compare with command list
+    beq TOK2                ; identified the command
+    iny                     ; No match, so check next one
     cpy #COMMANDPOINTERS - COMMANDS ; Number Of Commands
-    bne TOK1            ; keep trying
-    jmp ERROR           ; no command found, so error
+    bne TOK1                ; keep trying
+    jmp ERROR               ; no command found, so error
 
 TOK2
-    tya                 ; Command found 
-    asl                 ; multply by 2
-    tay                 ; move to index offset
+    tya                     ; Command found 
+    asl                     ; multply by 2
+    tay                     ; move to index offset
     lda COMMANDPOINTERS,y   ; load command pointer lo
     sta HT  
     lda COMMANDPOINTERS+1,y ; load command pointer hi
     sta HT + 1
-    jmp (HTVEC)         ; jump to the command
+    jmp (HTVEC)             ; jump to the command
 
+;******************************************************************************
 PrintCarrageReturnAndLineFeed
     lda #CHR_Return
     jmp krljmp_CHROUT$
@@ -292,24 +293,24 @@ COMMANDS
 COMMANDPOINTERS
     WORD TOKANISER_COMMAND
     WORD COM_REGISTER
-;    WORD COM_ASSEMBLE
-;    WORD COM_COMMAND
-;    WORD COM_DISASSEMBLE
-;    WORD COM_FILL
-;    WORD COM_GOSUB
-;    WORD COM_HUNT
-;    WORD COM_INTERP
-;    WORD COM_LOAD
-;    WORD COM_MEMORY
-;    WORD COM_OUTPUT
-;    WORD COM_SAVE
-;    WORD COM_TRANSFER
-;    WORD COM_EXIT
-;    WORD COM_MEMORYPUT
-;    WORD COM_REGISTERPUT
-;    WORD COM_ASSEMBLE
-;    WORD COM_DECIMAL
-;    WORD COM_HEXDEC
-;    WORD COM_BINARY
-;    WORD COM_OCTAL
-;    WORD COM_HELP
+    WORD COM_ASSEMBLE
+    WORD COM_COMMAND
+    WORD COM_DISASSEMBLE
+    WORD COM_FILL
+    WORD COM_GOSUB
+    ;WORD COM_HUNT
+    ;WORD COM_INTERP
+    ;WORD COM_LOAD
+    ;WORD COM_MEMORY
+    ;WORD COM_OUTPUT
+    ;WORD COM_SAVE
+    ;WORD COM_TRANSFER
+    ;WORD COM_EXIT
+    ;WORD COM_MEMORYPUT
+    ;WORD COM_REGISTERPUT
+    ;WORD COM_ASSEMBLE
+    ;WORD COM_DECIMAL
+    ;WORD COM_HEXDEC
+    ;WORD COM_BINARY
+    ;WORD COM_OCTAL
+    ;WORD COM_HELP
