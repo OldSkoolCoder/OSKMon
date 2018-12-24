@@ -15,6 +15,8 @@
 ;* 18th May 2018 : Added Command Command                                       *
 ;* 20th May 2018 : Added Fill Command                                          *
 ;* 22nd May 2018 : Added Gosub Command                                         *
+;* 2nd June 2018 : Added Hunt Command                                          *
+;* 6th June 2018 : Added Interpret Command                                     *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -162,3 +164,5 @@ incasm "libDissassembleCommand.asm"
 incasm "libCommandCommand.asm"
 incasm "libFillCommand.asm"
 incasm "libGoCommand.asm"
+incasm "libHuntCommand.asm"
+incasm "libInterpretCommand.asm"
