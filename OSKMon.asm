@@ -17,6 +17,10 @@
 ;* 22nd May 2018 : Added Gosub Command                                         *
 ;* 2nd June 2018 : Added Hunt Command                                          *
 ;* 6th June 2018 : Added Interpret Command                                     *
+;* 21st June 2018 : Added Load Command                                         *
+;* 22nd June 2018 : Added Memory Command                                       *
+;* 22nd June 2018 : Added MemoryPut Command                                    *
+;* 23rd June 2018 : Added Output Command                                       *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -166,3 +170,6 @@ incasm "libFillCommand.asm"
 incasm "libGoCommand.asm"
 incasm "libHuntCommand.asm"
 incasm "libInterpretCommand.asm"
+incasm "libLoadCommand.asm"
+incasm "libMemoryCommand.asm"
+incasm "libOutputCommand.asm"
