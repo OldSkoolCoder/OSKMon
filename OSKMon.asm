@@ -21,6 +21,13 @@
 ;* 22nd June 2018 : Added Memory Command                                       *
 ;* 22nd June 2018 : Added MemoryPut Command                                    *
 ;* 23rd June 2018 : Added Output Command                                       *
+;* 24th June 2018 : Added Save Command                                         *
+;* 24th June 2018 : Added Transfer Command                                     *
+;* 24th June 2018 : Added Exit Command                                         *
+;* 26th June 2018 : Added Decimal Command                                      *
+;* 26th June 2018 : Added Hexadecimal Command                                  *
+;* 26th June 2018 : Added Binary Command                                       *
+;* 26th June 2018 : Added Octal Command                                        *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -173,3 +180,11 @@ incasm "libInterpretCommand.asm"
 incasm "libLoadCommand.asm"
 incasm "libMemoryCommand.asm"
 incasm "libOutputCommand.asm"
+incasm "libSaveCommand.asm"
+incasm "libTransferCommand.asm"
+incasm "libExitCommand.asm"
+incasm "libDecimalCommand.asm"
+incasm "libHexadecimalCommand.asm"
+incasm "libBinaryCommand.asm"
+incasm "libOctalCommand.asm"
+incasm "libHelpCommand.asm"

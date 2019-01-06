@@ -8,12 +8,17 @@ bas_ReadyPrompt$    = $A474
 bas_LineGet$        = $A96B
 bas_NEWCommand$     = $A642
 bas_FindLine$       = $A613
+bas_LinkProgram$    = $A533
+bas_InLine$         = $A560
+bas_FrmNum$         = $AD8A
+bas_GetAddr$        = $B7F7
+bas_LinePrint$      = $BDCD
 endif
 
          
 ifdef TGT_VIC20_8K
 ; BASIC Rom Starts at $C000
-bas_ROMError$       = $A437
+bas_ROMError$       = $C437
 bas_CustomError$    = $C447
 bas_DecimalPrint$   = $DDCD
 bas_PrintString$    = $CB1E
@@ -21,6 +26,11 @@ bas_ReadyPrompt$    = $C474
 bas_LineGet$        = $C96B
 bas_NEWCommand$     = $C642
 bas_FindLine$       = $C613
+bas_LinkProgram$    = $C533
+bas_InLine$         = $C560
+bas_FrmNum$         = $CD8A
+bas_GetAddr$        = $D7F7
+bas_LinePrint$      = $DDCD
 endif
 
 ; Kernel Jump Vectors

@@ -1,47 +1,51 @@
 ;*******************************************************************************
-;* Break Operation                                                             *
+;* Register Operation                                                          *
 ;*******************************************************************************
 ;* Syntax : R <RETURN>
 ;*******************************************************************************
 
 COM_REGISTER
-    ldy #>REGISTER_TEXT
+    ldy #>REGISTER_TEXT             ; Load Address of Registry Header
     lda #<REGISTER_TEXT
-    jsr bas_PrintString$
-    lda PCLOREG
+    jsr bas_PrintString$            ; Print Registry Header
+    lda PCLOREG                     ; Load Programm Counter
     ldx PCHIREG
-    jsr PBYTE2
+    jsr PBYTE2                      ; Print as HEX Word Value
     jsr SPACE
+
 ifdef TGT_C64
-    lda IRQINT
+    lda IRQINT                      ; Load IRQ Vector Address Value
     ldx IRQINT + 1
-    jsr PBYTE2
+    jsr PBYTE2                      ; Print as HEX Word Value
     jsr SPACE
-    lda NMIINT
+    lda NMIINT                      ; Load MNI Vector Address Value
     ldx NMIINT + 1
-    jsr PBYTE2
+    jsr PBYTE2                      ; Print as HEX Word Value
     jsr SPACE
 endif
-    lda STREG
-    jsr PBYTE1
+
+    lda STREG                       ; Load Status Register Value
+    jsr PBYTE1                      ; Print as HEX Byte Value
     jsr SPACE
-    lda ACCREG
-    jsr PBYTE1
+    lda ACCREG                      ; Load Accumulator Value
+    jsr PBYTE1                      ; Print as HEX Byte Value
     jsr SPACE
-    lda XREG
-    jsr PBYTE1
+    lda XREG                        ; Load X Register Value
+    jsr PBYTE1                      ; Print as HEX Byte Value
     jsr SPACE
-    lda YREG
-    jsr PBYTE1
+    lda YREG                        ; Load Y Register Value
+    jsr PBYTE1                      ; Print as HEX Byte Value
     jsr SPACE
-    lda STPTREG
-    jsr PBYTE1
+    lda STPTREG                     ; Load Stack Pointer Value
+    jsr PBYTE1                      ; Print as HEX Byte Value
+
 ifdef TGT_C64
     jsr SPACE
-    lda STREG
-    jsr STATUS_REGISTER
+    lda STREG                       ; Load Status Register Value
+    jsr STATUS_REGISTER             ; Print Status Flags
 endif
-    jmp READY1
+
+    jmp READY1                      ; Jump back to Command Line
 
 REGISTER_TEXT
 ifdef TGT_C64
@@ -78,8 +82,10 @@ endif
 ;* Code                                                                        *
 STATUS_REGISTER
     ldy #0                  ; Initialise Y Register
+
 @STREG1
     sta STREGISTER          ; Store Acc. into Status Register Variable
+
 @STREG3 
     asl STREGISTER          ; logically shift the acc left, and carry set or not
     lda #0                  ; Load Zero into Accu.
@@ -87,6 +93,7 @@ STATUS_REGISTER
     cpy #2                  ; is y = 2
     bne @STREG2             ; if yes, branch past the '-' symbol
     lda #"-"                ; Load Acc with "-"
+
 @STREG2
     jsr krljmp_CHROUT$      ; Print The contents of the Acc
     iny                     ; increase the index Y
@@ -94,3 +101,37 @@ STATUS_REGISTER
     bne @STREG3             ; Branch if not equal back to next bit
     rts                     ; Return Back
 ;*******************************************************************************
+
+;*******************************************************************************
+;* Register Put Operation                                                      *
+;*******************************************************************************
+;* Syntax : ; <RETURN>
+;*******************************************************************************
+
+COM_REGISTERPUT
+    jsr IBYTE2              ; Get Hex Word Value
+    sta PCHIREG             ; Store in PC Address
+    stx PCLOREG
+    
+ifdef TGT_C64
+    jsr IBYTE2              ; Get Hex Word Value
+    sei
+    sta IRQINT + 1          ; Store in IRQ Vector location
+    stx IRQINT
+    jsr IBYTE2              ; Get Hex Word Value
+    sta NMIINT + 1          ; Store in NMI Vector Location
+    stx NMIINT
+    cli
+endif
+
+    jsr IBYTE1              ; Get Hex Byte Value
+    sta STREG               ; Store in Status Register
+    jsr IBYTE1              ; Get Hex Byte Value
+    sta ACCREG              ; Store in Accumulator
+    jsr IBYTE1              ; Get Hex Byte Value
+    sta XREG                ; Store in X Register
+    jsr IBYTE1              ; Get Hex Byte Value
+    sta YREG                ; Store In Y Register
+    jsr IBYTE1              ; Get Hex Byte Value
+    sta STPTREG             ; Store in Stck Pointer
+    jmp READY               ; Jump to Command Line

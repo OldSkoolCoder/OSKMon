@@ -19,7 +19,7 @@ ErrorHandler
     tax
     lda @ErrorCodes,x
     sta ErrorHandlerLo
-    lda @ErrorCodes+1,x
+    lda @ErrorCodes + 1,x
     sta ErrorHandlerHi
     pla                     ; Retrieve Back Error Code
     jmp bas_CustomError$

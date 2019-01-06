@@ -37,23 +37,33 @@
         <PostBuildCommands />
     </BuildEvents>
     <BuildList>
+        <FileName>libAssembleCommand.asm</FileName>
         <FileName>libBASICRoutines.asm</FileName>
+        <FileName>libBinaryCommand.asm</FileName>
         <FileName>libCharacterASCIIConst.asm</FileName>
+        <FileName>libCommandCommand.asm</FileName>
+        <FileName>libDecimalCommand.asm</FileName>
+        <FileName>libDissassembleCommand.asm</FileName>
         <FileName>libErrorCodes.asm</FileName>
         <FileName>libErrorHandler.asm</FileName>
-        <FileName>libROMRoutines.asm</FileName>
-        <FileName>OSKMon.asm</FileName>
-        <FileName>libOpCodesArray.asm</FileName>
-        <FileName>libOSKRoutines.asm</FileName>
-        <FileName>libRegisterCommand.asm</FileName>
-        <FileName>libAssembleCommand.asm</FileName>
-        <FileName>libDissassembleCommand.asm</FileName>
-        <FileName>libCommandCommand.asm</FileName>
+        <FileName>libExitCommand.asm</FileName>
         <FileName>libFillCommand.asm</FileName>
         <FileName>libGoCommand.asm</FileName>
+        <FileName>libHelpCommand.asm</FileName>
+        <FileName>libHexadecimalCommand.asm</FileName>
+        <FileName>libHuntCommand.asm</FileName>
+        <FileName>libInterpretCommand.asm</FileName>
         <FileName>libLoadCommand.asm</FileName>
         <FileName>libMemoryCommand.asm</FileName>
+        <FileName>libOctalCommand.asm</FileName>
+        <FileName>libOpCodesArray.asm</FileName>
+        <FileName>libOSKRoutines.asm</FileName>
         <FileName>libOutputCommand.asm</FileName>
+        <FileName>libRegisterCommand.asm</FileName>
+        <FileName>libROMRoutines.asm</FileName>
+        <FileName>libSaveCommand.asm</FileName>
+        <FileName>libTransferCommand.asm</FileName>
+        <FileName>OSKMon.asm</FileName>
     </BuildList>
     <DetermineBuildOrder>0</DetermineBuildOrder>
     <PaddingByte>0</PaddingByte>
@@ -82,6 +92,17 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
+            <Name>libBinaryCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
             <Name>libCharacterASCIIConst.asm</Name>
             <PrgName />
             <FileType>2</FileType>
@@ -102,6 +123,17 @@
             <Bookmarks />
             <Topmost>False</Topmost>
             <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libDecimalCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
             <Name>libDissassembleCommand.asm</Name>
@@ -137,6 +169,17 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
+            <Name>libExitCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
             <Name>libFillCommand.asm</Name>
             <PrgName />
             <FileType>2</FileType>
@@ -156,6 +199,50 @@
             <Breakpoints />
             <Bookmarks />
             <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libHelpCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libHexadecimalCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libHuntCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libInterpretCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
@@ -167,10 +254,21 @@
             <Breakpoints />
             <Bookmarks />
             <Topmost>False</Topmost>
-            <FileOpen>True</FileOpen>
+            <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
             <Name>libMemoryCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libOctalCommand.asm</Name>
             <PrgName />
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -211,7 +309,7 @@
             <Breakpoints />
             <Bookmarks />
             <Topmost>False</Topmost>
-            <FileOpen>True</FileOpen>
+            <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
             <Name>libRegisterCommand.asm</Name>
@@ -234,6 +332,28 @@
             <Bookmarks />
             <Topmost>False</Topmost>
             <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libSaveCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libTransferCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
             <Name>OSKMon.asm</Name>
