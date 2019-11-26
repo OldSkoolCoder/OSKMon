@@ -43,9 +43,13 @@ ifdef TGT_C64
     jsr SPACE
     lda STREG                       ; Load Status Register Value
     jsr STATUS_REGISTER             ; Print Status Flags
+    jmp READY1                      ; Jump back to Command Line
 endif
 
-    jmp READY1                      ; Jump back to Command Line
+ifdef TGT_VIC20_8K
+    jmp READY
+endif
+
 
 REGISTER_TEXT
 ifdef TGT_C64
@@ -62,8 +66,8 @@ ifdef TGT_VIC20_8K
     BYTE 13
     TEXT "b*"
     BYTE 13
-    TEXT "   pc   sr ac xr yr sp"
-;    BYTE 13
+    TEXT "   pc  sr ac xr yr sp"
+    BYTE 13
     WORD $3b3e
     brk 
 endif
