@@ -12,14 +12,14 @@ Enjoy
 
 The parameters in the command formats are represented as follows :-
 
-* (addr)     A two byte hex address, e.g. 0400  
-* (dev)		A single byte dex device number, e.g. 08 (DISC)  
-* (opcode)	A valid 6510 assembly mnemonic, e.g. LDA  
-* (operand)	A valid operand for the proceeding instruction, e.g. #$01  
-* (value)	A single byte hex value, e.g. FF  
-* (data)     A String of literal data enclosed in quotes of hex values. Successive items are separated with commas.  
-* (ref)		A two byte hex address, e.g. 2000  
-* (offset)	A two byte offset value, e.g. 3000  
+* **(addr)** A two byte hex address, e.g. 0400  
+* **(dev)**	A single byte dex device number, e.g. 08 (DISC)  
+* **(opcode)** A valid 6510 assembly mnemonic, e.g. LDA  
+* **(operand)** A valid operand for the proceeding instruction, e.g. #$01  
+* **(value)** A single byte hex value, e.g. FF  
+* **(data)** A string of literal data enclosed in quotes of hex values. Successive items are separated with commas.  
+* **(ref)**	A two byte hex address, e.g. 2000  
+* **(offset)** A two byte offset value, e.g. 3000  
 
 #### A – ASSEMBLE
 Format : `A (addr) (opcode) (operand)`
@@ -71,7 +71,7 @@ Example : To show all the addressing modes for CMP.
 
 Type :	**`C CMP <RETURN>`**  
 Display :  
-CMP $DCBA **ABSOLUTE**  
+CMP $DCBA ABSOLUTE 
 CMP $DCBA,X      ABSOLUTE,X  
 CMP $DCBA,Y      ABSOLUTE,Y  
 CMP #$BA         IMMEDIATE  
@@ -153,7 +153,7 @@ Type : `H C000 C0FF ‘PRESS PLAY ON <RETURN>`
 Format : `I (addr) (addr)`  
 Purpose :  
 >To locate and display printable txt characters within a specified block of memory.
->The I Command will display any of the 96 printable CBM ASCII code equivalents occurring within the specified block of memory. All other characters in the block will be indicated by a dot ‘.’.
+>The I Command will display any of the 96 printable CBM ASCII code equivalents occurring within the specified block of memory. All other characters in the block will be indicated by a dot ‘.’  
 >If the specified block fills the screen, the screen will scroll. The <STOP> key will terminate the scrolling and the <CONTROL> key will slow the rate of scrolling.
 
 Example : To show the characters in memory from $A09E to $A19E
@@ -163,7 +163,7 @@ Type : `I A09E A19E <RETURN>`
 #### L – LOAD
 Format : `L “FILENAME” (dev)`  
 Purpose :
->To load a program file into memory from a specified device.
+>To load a program file into memory from a specified device.  
 >The L Command enables you to read a load file or a program file which is stored on a cassette or disc and write it into the C64’s RAM. For disc files, the address of the first location in RAM into which the load file will be read must be the first two bytes of a file. Tape files have the start address as part of the header block.
 
 Example : Assume you have a disc program file names TEST which is 258 bytes long, the first two bytes of which are 00CA. To read this file into memory.
