@@ -62,22 +62,23 @@ Result : The machine code equivalent of the specified assembly language is store
 #### C – COMMAND
 Format :	`C (opcode)`
 
-Purpose :	
+Purpose :  
 >To show you all the addressing modes of that command.
 >This command allows you to see what addressing modes are available.
 
-Example :	
-To show all the addressing modes for CMP.
-Type :	C CMP <RETURN>
-Display :	
-CMP$DCBA		ABSOLUTE
-CMP$DCBA,X		ABSOLUTE,X
-CMP$DCBA,Y		ABSOLUTE,Y
-CMP#$BA		    IMMEDIATE
-CMP($BA,X)		(INDIRECT,X)
-CMP($BA),Y		(INDIRECT),Y
-CMP$BA		    ZERO-PAGE
-CMP$BA,X		ZERO-PAGE,X
+Example :  
+To show all the addressing modes for CMP.  
+Type :	**`C CMP <RETURN>`**  
+Display :  
+CMP$DCBA        ABSOLUTE  
+CMP$DCBA,X      ABSOLUTE,X  
+CMP$DCBA,Y      ABSOLUTE,Y  
+CMP#$BA         IMMEDIATE  
+CMP($BA,X)      (INDIRECT,X)  
+CMP($BA),Y      (INDIRECT),Y  
+CMP$BA          ZERO-PAGE  
+CMP$BA,X        ZERO-PAGE,X  
+
 Result : There are eight possible addressing modes for op-code CMP.
 
 #### D – DISSASSEMBLE
