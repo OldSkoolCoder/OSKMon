@@ -11,29 +11,44 @@ Enjoy
 ### List of Command avaliable in OSKMon
 
 The parameters in the command formats are represented as follows :-
+
 *(addr)     A two byte hex address, e.g. 0400
+
 *(dev)		A single byte dex device number, e.g. 08 (DISC)
+
 *(opcode)	A valid 6510 assembly mnemonic, e.g. LDA
+
 *(operand)	A valid operand for the proceeding instruction, e.g. #$01
+
 *(value)	A single byte hex value, e.g. FF
+
 *(data)     A String of literal data enclosed in quotes of hex values. Successive items are separated with commas.
+
 *(ref)		A two byte hex address, e.g. 2000
+
 *(offset)	A two byte offset value, e.g. 3000
+
 
 #### A – ASSEMBLE
 Format :	`A (addr) (opcode) (operand)`
+
 Purpose :	
 >To assemble code starting from a specific address.
 >The command allows you to input assembly code line by line, and have it stored as machine code. When the command is entered, the appropriate code is written in memory beginning at the specified address.
 >The address of the available memory location beyond that required by the specific op-code and operand is then prompted awaiting input of additional code. To terminate the A command, simply press <RETURN> when the new address is prompted. If you input an illegal op-code or operand, DALEMON will place a question mark after the illegal quantity and will return you to the monitor with the prompt ‘>’ and a new line.
 >If you fail to specify either the op-code or operand, DALEMON will ignore the line and return you to the monitor with a ‘>’ on a new line.
+
 **N.B.** All operands must be given as hex numbers proceeded by a dollar sign ($). I.e. typed as $nn or $nnnn
 
 Example :	
 To Enter the following machine code :-
+
 `   LDA #$19`
+
 `   JSR $FFD2`
+
 `	RTS`
+
 Beginning at address $C000
 Type : 	A C000 LDA#$19 <RETURN>
 Display :	>, C000 LDA #$19
@@ -51,6 +66,7 @@ Result : The machine code equivalent of the specified assembly language is store
  
 #### C – COMMAND
 Format :	`C (opcode)`
+
 Purpose :	
 >To show you all the addressing modes of that command.
 >This command allows you to see what addressing modes are available.
@@ -71,6 +87,7 @@ Result : There are eight possible addressing modes for op-code CMP.
 
 #### D – DISSASSEMBLE
 Format :	`D (addr) (addr)`
+
 Purpose :	
 >To disassemble code between a range of addresses
 >The D command enables you to convert the code that is stored in the computer’s memory back into assembly language notations. You may specify a range of addresses to be disassembled. The lines specified will be displayed on the screen one at a time and the screen will scroll.
