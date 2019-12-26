@@ -40,17 +40,22 @@ To Enter the following machine code :-
 
 Beginning at address $C000  
 Type : 	A C000 LDA#$19 <RETURN>  
-Display :	>, C000 LDA #$19  
-		    >A C002  
+Display :	
+>, C000 LDA #$19  
+>A C002  
+
 Type :	JSR $FFD2 <RETURN>  
-Display :	>, C000 LDA #$19  
-		    >, C002 JSR FFD2  
-		    >A C005  
+Display :	
+>, C000 LDA #$19  
+>, C002 JSR FFD2  
+>A C005  
+
 Type :	RTS <RETURN>  
-Display :	>, C000 LDA #$19  
-		    >, C002 JSR FFD2  
-		    >, C005 RTS  
-		    >, C006  
+Display :	
+>, C000 LDA #$19  
+>, C002 JSR FFD2  
+>, C005 RTS  
+>, C006  
 Result : The machine code equivalent of the specified assembly language is stored in the memory from location $C000 to $C005 inclusive.
  
 #### C – COMMAND
