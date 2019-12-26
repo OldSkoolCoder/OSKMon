@@ -39,19 +39,19 @@ To Enter the following machine code :-
 `	RTS`  
 
 Beginning at address $C000  
-Type : 	A C000 LDA#$19 <RETURN>  
-Display :	
+Type : `A C000 LDA#$19 <RETURN>`  
+Display :  
 `, C000 LDA #$19`  
 `A C002`  
 
-Type :	JSR $FFD2 <RETURN>  
-Display :	
+Type : `JSR $FFD2 <RETURN>`  
+Display :  
 `, C000 LDA #$19`  
 `, C002 JSR FFD2`  
 `A C005`  
 
-Type :	RTS <RETURN>  
-Display :	
+Type : `RTS <RETURN>`  
+Display :  
 `, C000 LDA #$19`  
 `, C002 JSR FFD2`  
 `, C005 RTS`  
