@@ -12,14 +12,14 @@ Enjoy
 
 The parameters in the command formats are represented as follows :-
 
-*(addr)     A two byte hex address, e.g. 0400  
-*(dev)		A single byte dex device number, e.g. 08 (DISC)  
-*(opcode)	A valid 6510 assembly mnemonic, e.g. LDA  
-*(operand)	A valid operand for the proceeding instruction, e.g. #$01  
-*(value)	A single byte hex value, e.g. FF  
-*(data)     A String of literal data enclosed in quotes of hex values. Successive items are separated with commas.  
-*(ref)		A two byte hex address, e.g. 2000  
-*(offset)	A two byte offset value, e.g. 3000  
+* (addr)     A two byte hex address, e.g. 0400  
+* (dev)		A single byte dex device number, e.g. 08 (DISC)  
+* (opcode)	A valid 6510 assembly mnemonic, e.g. LDA  
+* (operand)	A valid operand for the proceeding instruction, e.g. #$01  
+* (value)	A single byte hex value, e.g. FF  
+* (data)     A String of literal data enclosed in quotes of hex values. Successive items are separated with commas.  
+* (ref)		A two byte hex address, e.g. 2000  
+* (offset)	A two byte offset value, e.g. 3000  
 
 #### A – ASSEMBLE
 Format :	`A (addr) (opcode) (operand)`
@@ -33,13 +33,10 @@ Purpose :
 **N.B.** All operands must be given as hex numbers proceeded by a dollar sign ($). I.e. typed as $nn or $nnnn
 
 Example :	
-To Enter the following machine code :-
-
-`   LDA #$19`
-
-`   JSR $FFD2`
-
-`	RTS`
+To Enter the following machine code :-  
+`   LDA #$19`  
+`   JSR $FFD2`  
+`	RTS`  
 
 Beginning at address $C000
 Type : 	A C000 LDA#$19 <RETURN>
