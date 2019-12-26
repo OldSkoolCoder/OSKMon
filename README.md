@@ -70,7 +70,7 @@ Example :
 To show all the addressing modes for CMP.  
 Type :	**`C CMP <RETURN>`**  
 Display :  
-CMP$DCBA        ABSOLUTE  
+|CMP$DCBA|ABSOLUTE|  
 CMP$DCBA,X      ABSOLUTE,X  
 CMP$DCBA,Y      ABSOLUTE,Y  
 CMP#$BA         IMMEDIATE  
